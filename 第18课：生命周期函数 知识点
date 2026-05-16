@@ -6,7 +6,7 @@ public class lesson1 : MonoBehaviour
 
     // unity 已經做好死循環
 
-    // 我們學習目標是unity的生命週期函數
+    // 學習目標是unity的生命週期函數
 
     //  偵=每秒畫面數量 ,60偵=每秒60個畫面
 
