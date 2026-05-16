@@ -1,0 +1,139 @@
+using UnityEngine;
+
+public class lesson1 : MonoBehaviour
+{
+    #region 知識點一 了解偵的概念
+
+    // unity 已經做好死循環
+
+    // 我們學習目標是unity的生命週期函數
+
+    //  偵=每秒畫面數量 ,60偵=每秒60個畫面
+
+    #endregion
+
+    #region 知识点二生命周期函数的概念
+
+    //所有继承MonoBehaviour的脚本 最终都会挂载到GameObject游戏对象上
+
+    //生命周期函数就是该脚本对象依附的GameObject对象从出生到消亡整个生命周期中
+
+    //会通过反射自动调用的一些特殊函数
+
+    //Unity帮助我们记录了一个GameObject对象依附了哪些脚本
+
+    //会自动的得到这些对象,通过反射去执行一些固定名字的函数
+
+    #endregion
+
+    #region 知识点三 生命周期函数
+
+    //注意 : 生命周期函数的访问修饰符一般为private和protected
+
+    //因为不需要再外部自己调用生命周期函数 都是unity自己帮助我们调用的
+
+    //当对象(自己这个类对象)被创建时才会调用该生命周期函数
+
+    //类似构造函数的存在我们可以在一个类对象 该创建进行一些初始化操作
+
+
+
+    //在unity中打印信息的两种方式
+
+    //1.没有继承MonoBehavior类的时候
+
+    //Debug.Log("123");
+
+    //Debug.LogError("出错了!!!!!");
+
+    //Debug.LogWarning("警告!!!");
+
+    //2.继承了MonoBehavior 有一个线程的方法可以使用
+
+    //print("Awake");
+
+
+
+    void Awake()
+
+    {
+        //当对象(自己这个类对象)被创建时才会调用该生命周期函数
+
+        //类似构造函数的存在我们可以在一个类对象 该创建进行一些初始化操作
+
+        print("Awake");
+
+    }
+
+    void OnEnable()
+
+    {
+        //当对象(自己这个类对象)被激活时才会调用该生命周期函数
+
+        //想要當一個對象被激活時 進行一些邏輯處理 就可以寫在這個函數
+
+        print("OnEnable");
+
+    }
+
+    void start()
+    {
+        //主要作用还是用于初始化信息的但是它相对Awake来说要晚一点
+
+        //因为它是在对象进行第一次帧更新之前才会执行的
+
+        print("start");
+
+    }
+
+    void FixedUpdate()
+
+    {
+        //它主要是用于进行物理更新
+
+        //它是每一帧的执行的但是这里的帧和游戏帧有点不同(可在 project setting / time 中設置)
+
+        print("FixedUpdate");
+
+    }
+
+    void Update()
+    {
+        //主要用於處理遊戲核心邏輯更新的函數
+
+        print("update");
+
+    }
+
+    void LateUpdate()
+    {
+        //一般用於處理攝像機位置更新相關內容
+
+        //Update和LateUpdate之間 Unity進了一些處理 處理動畫相關內容的更新 (和Update同一偵)
+
+        print("LateUpdate");
+
+    }
+
+    void OnDisable()
+    {
+        //当对象(自己这个类对象)被失活时才会调用该生命周期函数
+
+        //想要當一個對象失活時 進行一些邏輯處理 就可以寫在這個函數
+
+        print("OnDisable");
+
+    }
+
+    void OnDestroy()
+    {
+        //当对象(自己这个类对象)被刪除时才会调用该生命周期函数
+
+        print("OnDestroy");
+
+    }
+
+    #endregion
+
+
+}
