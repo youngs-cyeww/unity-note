@@ -1,0 +1,147 @@
+using UnityEngine;
+
+public class lesson4 : MonoBehaviour
+{
+
+    void Start()
+    {
+        #region 知识点一 GameObject中的成员变量
+
+        //名字
+
+        print(this.gameObject.name);
+
+        this.gameObject.name = "Lesson4 改名”;
+
+        print(this.gameObject.name);
+
+        //是否激活
+
+        print(this.gameObject.activeSelf);
+
+        //是否是静态
+
+        print(this.gameObject.isStatic);
+
+        //层级
+
+        print(this.gameObject.layer);
+
+        //标签
+
+        print(this.gameObject.tag);
+
+        //transform
+
+        //this.transform 這行和下方功能相同，這一行是由Mono提供的，下一行事由gameObject提供的
+
+        print(this.gameObject.transform.position);
+
+        #endregion
+
+        #region 知识点二 GameObject中的靜態方法
+
+        //创建自带几何体
+
+        //只要得到了一个GameObject对象 我就可以得到它身上挂在的任何脚本信息
+
+        //通过obj.GetComponent来得去
+
+        GameObject obj GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        obj.name =“唐老狮创建的立方体”;
+
+        //查找对象相关的知识
+
+        //两种找单个对象的共同点:
+
+        //1.无法找到失活的对象的
+
+        // 只能找到激活的对象
+
+        //2.如果场景中存在多个满足条件的对象
+
+        // 我们无法准确确定提的是谁
+
+        //1查找单个对象
+
+        //通过对象名查找
+
+        //这个查找效率比较低下 因为他会在场景中的所有对象去查找
+
+        //没有找到就会返回null
+
+        GameObject obj2 GameObject.Find("唐老狮”);
+
+        //if (obj2 1 null)
+
+        //else
+
+        //通过tag来查找对象
+
+        //GameObject obj3 GameObject. FindWithTag("Player");
+
+        //该方法和上面这个方法效果一样只是名字不一样而已
+
+        //通过tag来查找对象
+
+        GameObject obj3 = GameObject.FindGameObjectWithTag("Player");
+
+        //if (obj3 1 = null)
+
+        //else 
+
+        //得到某一个单个对象 目前有2种方式了
+
+        //1.是public从外部面板拖进行关联
+
+        //2.通过API去找
+
+        //2查找多个对象
+
+
+
+        //实例化对象(克隆对象)的方法
+
+        //实例化(克隆)对象它的作用是根据一个GameObject对象 创建出一个和它一模一样的对象
+
+        GameObject obj5 GameObject.Instantiate(myobj);
+
+        //以后学了更多知识点就可以在这操作obj5
+
+        //如果你继承了 MonoBehavior 其实可以不用写GameObject一样可以使用
+
+        //因为这个方法时Unity里面的 object基类提供给我们的所以可以直接用
+
+        Instantiate(myobj);
+
+
+
+        //刪除對象的方法
+
+        GameObject.Destroy(mycbj2);
+
+        //第二個函數代表延遲幾秒刪除
+
+        GameObject.Destroy(obj5, 5);
+
+        //也能刪除腳本
+
+        GameObject.Destroy(this);
+
+        //删除对象有两种作用
+
+        //1.是删除指定的一个游戏对象
+
+        //2.是删除一个指定的脚本对象
+
+        //注意:这个Destroy方法 不会马上移除对象 而是給這個對象一個移除的標記
+
+        //一般情况下它会在下一顿时把这个对象移除并从内存中移除 
+
+        #endregion
+    }
+
+
+
+}
