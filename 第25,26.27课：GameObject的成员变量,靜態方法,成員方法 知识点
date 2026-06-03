@@ -139,9 +139,122 @@ public class lesson4 : MonoBehaviour
 
         //一般情况下它会在下一顿时把这个对象移除并从内存中移除 
 
+
+
+        //过场景不移除
+
+        //默认情况在切换场景时 场景中对象都会被自动删除掉
+
+        //如果你希望某个对象过场景不被移除
+
+        //下面这句代码就是不想谁过场景被移除就传谁
+
+        //一般都是传依附的GameObject对象
+
+        //比如下面这句代码的意思就是自己依附的GameObject对象 过场景不被删除
+
+        GameObject.DontDestroyOnLoad(this.gameObject);
+
         #endregion
+
+        #region 知识点三 GameObject中的成員變量
+
+        //new个GameObject就是在创建一个空物体
+
+        GameObject obj6 new GameObject();
+        GameObject obj7 = new GameObject("唐老狮创建的空物体”);
+
+
+
+        GameObject obj8 = new GameObject(“顺便加脚本的空物体”, typeof(Lesson2))
+
+
+        //为对象添加脚本
+
+        //继承MOnoBehavior的脚本是不能够去new
+
+        //如果想要动态的添加继承MonoBehavior的脚本 在某一个对象上
+
+        //直接使用GameObject提供的方法即可
+
+        Lesson1 lesi obj6.AddComponent(typeof(Lesson1)) as Lesson1;
+
+        //用泛型更方便
+
+        Lesson2 les2 obj6.AddComponent<Lesson2>();
+
+        //通过返回值可以得到加入的脚本信息
+
+        //来进行一些处理
+
+        //得到脚本的成员方和继承Mono的类得到脚本的方法一模一样
+
+        //标签比较
+
+        //下面两种比较的方法是一样的
+
+
+        if (this.gameObject.CompareTag("Player"))
+        {
+            print(“对象的标签是 Player");
+        }
+        if (this.gameObject.tag == "Player")
+        {
+            print(“对象的标签是Player");
+        }
+
+
+        //设置激活失活
+
+        //false 失活
+
+        //true 激活
+
+        obj6.SetActive(false);
+
+        obj7.SetActive(false);
+
+        obj8.SetActive(false);
+
+
+
+
+        //次要的成员方法了解即可不建议使用
+        //强调
+        //下面讲的方法都不建议大家使用效率比较低
+        //通过广播或者发送消息的形式让自己或者别人执行某些行为方法
+
+
+        //通知自己执行什么行为
+        //命令自己去执行这个TestFun这个函数会在自己身上挂在的所有脚本去找这个名字的函数
+        //它会去找到自己身上所有的脚本 有这个名字的函数去执行
+
+        this.gameObject.SendMessage("TestFun");
+        this.gameObject.SendMessage("TestFun2", 199);
+
+        //广播行为让自己和自己的子对象执行
+        //this.gameObject.BroadcastMessage("函数名");
+
+
+        //向父对象和自己发送消息 并执行
+        //this.gameObject.SendMessageUpwards (“函数名");
+
+        #endregion
+
     }
 
+
+
+
+    void TestFun()
+    {
+        print("Lesson4的TestFun")
+    }
+
+    void TestFun2(int a)
+    {
+        print("Lesson4的TestFun2" + a)
+    }
 
 
 }
