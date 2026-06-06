@@ -1,0 +1,105 @@
+using UnityEngine;
+
+public class lesson6 : MonoBehaviour
+{
+
+    void Start()
+    {
+
+        #region 知识点一 必备知识点 Vector3基础
+
+        //Vector3主要是用来表示三维坐标系中的一个点或者一个向量
+
+        //申明
+
+        Vector3v new Vector3();
+
+        v.x = 10
+        v.y = 10
+        v.z = 10
+
+        //只传xy 默认是0
+
+        Vector3 v2 new Vector3(10, 10);
+
+        //一步到位
+
+        Vector3 v3 new Vector3(10, 10, 10);
+
+        Vector3 v4;
+
+        v4.x = 10
+        v4.y = 10
+        v4.z = 10
+
+        //Vector的基本计算
+
+        //+-*/
+
+        Vector3 v1 new Vector3(1, 1, 1);
+        Vector3 v12 new Vector3(2, 2, 2);
+
+        //对应用x+或者-x.....
+
+        print(v1 v12);
+        print(v1v12);
+        print(v1 10);
+        print(v12 / 2);
+
+        //常用
+        print(Vector3.zero); //000
+        print(Vector3.right);//100
+        print(Vector3.left);//-100
+        print(Vector3.forward);//001
+        print(Vector3.back);//00-1
+        print(Vector3.up);//010
+        print(Vector3.down);//0-10
+
+        #endregion
+
+        #region 知识点二 位置
+
+        //相对世界坐标系
+        //this.gameObject.transform
+        //通过position得到的位置是相对于世界坐标系的原点的位置
+        //可能和面板上显示的是不一样的
+        //因为如果对象有父子关系并且父对象位置不在原点 那么和画板上肯定就是不一样的
+        print(this.transform.position);
+
+        //相对父对象
+        //这两个坐标对于我们来说很重要 如果你想以面板坐标为准来进行位置设置
+        //那一定是通过localPosition来进行设置的
+        print(this.transform.localPosition);
+
+        //他们两个可能出现是一样的情况
+        //1.父对象的坐标就是世界坐标系原点0,0,0
+        //2.对象没有父对象
+
+        //对象当前的各朝向
+
+        //注意:位置的赋值不能直接改变x,y,z只能整体改变
+        //不能单独改 x y z某一个值
+        //this.transform.position.x = 10;
+        this.transform.position new Vector3(10, 10, 10);
+        this.transform.localPosition Vector3.up 10;
+
+        //如果你想得到对象当前的一个朝向
+        //那么就是通过 trasform.出来的
+        //对象当前的各朝向
+
+        //对象当前的面朝向
+        print(this.transform.forward);
+
+        //对象当前的头顶朝向
+        print(this.transform.up);
+
+        //对象当前的右手边
+        print(this.transform.right);
+
+        #endregion
+
+
+    }
+
+
+}
