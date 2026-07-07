@@ -20,4 +20,18 @@ public class lesson8 : MonoBehaviour
   
   #endregion
 
+
+
+  #region 知识点二本地坐标转世界坐标
+
+  //本地坐标系的点转换为相对世界坐标系的点受到缩放影响
+  print(“本地转世界点”+ this.transform. TransformPoint(Vector3.forward));
+  
+  //本地坐标系的方向转换为相对世界坐标系的方向
+  //不受缩放影响
+  print("本地转世界方向” this.transform.TransformDirection (Vector3.forward));
+  //受缩放影响
+  print(“本地转世界方向”+ this.transform.TransformVector (Vector3.forward));
+
+  #endregion
 }
