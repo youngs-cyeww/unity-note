@@ -1,9 +1,7 @@
 #region 知识点一鼠标在屏幕位置
 
 //屏幕坐标的原点是在屏幕的左下角 往右是x轴正方向往上时轴正方向
-
 //返回值时Vector3 但是只有 xy有值一直是是因为屏幕本来就是2D的不存在Z轴
-
 print(Input.mousePosition);
 
 #endregion
