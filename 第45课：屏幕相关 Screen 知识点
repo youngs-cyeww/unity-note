@@ -57,3 +57,6 @@ public class lesson8 : MonoBehaviour
   Screen.SetResolution(1920, 1080, false);
   
   #endregion
+
+}
+}
