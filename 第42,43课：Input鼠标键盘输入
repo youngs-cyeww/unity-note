@@ -41,7 +41,7 @@ print(Input.mouseScrollDelta);
 //键盘按下
 if( Input.GetKeyDown(KeyCode.W))
 {
-print("w键按下");
+  print("w键按下");
 }
 
 //传入字符串的重载
@@ -52,13 +52,13 @@ if( Input.GetKeyDown("q"))...
 //键盘抬起
 if(Input.GetKeyUp(KeyCode.W) )
 {
-print("w键抬起”);
+  print("w键抬起”);
 }
 
 //键盘长按
 if(Input.GetKey(KeyCode.W))
 {
-print("w键长按”);
+  print("w键长按”);
 }
 
 #endregion
@@ -86,5 +86,25 @@ print(Input.GetAxisRaw "Mouse Y"));
 //我们默认的 GetAxis方法是有渐变的会总-1~0~1之间 渐变会出现小数
 //GetAxisRaw方法和 GetAxis使用方式相同
 //只不过它的返回值只会是-101不会有中间值 
+
+#endregion
+
+#region 其它
+
+//是否有任意键或鼠标长按
+
+if(Input.anyKey)
+{
+  print("有一个键长按”);
+}
+
+//是否有任意键或鼠标按下
+
+if(Input.anyKeyDown)
+{
+  print(“有一个键按下“);
+  //这一帧的键盘输入
+  print(Input.inputString);
+}
 
 #endregion
